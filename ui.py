@@ -1,8 +1,3 @@
-"""
-User interface for the Employee Management System.
-Builds the Tkinter window: form, buttons, and employee table.
-"""
-
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -16,7 +11,6 @@ from employee_operations import (
 
 
 class EmployeeApp:
-    """Main application window: form to add/remove/promote employees and a table to display them."""
 
     def __init__(self, root):
         self.root = root
@@ -27,7 +21,7 @@ class EmployeeApp:
         self.refresh_employee_table()
 
     def create_widgets(self):
-        """Create the form frame, buttons, and the employee table (Treeview)."""
+
         # ----- Form: Employee ID, Name, Role, Salary -----
         form_frame = tk.LabelFrame(self.root, text="Employee Details", padx=10, pady=10)
         form_frame.pack(fill="x", padx=10, pady=5)
@@ -98,7 +92,6 @@ class EmployeeApp:
         self.tree.bind("<<TreeviewSelect>>", self.on_row_select)
 
     def on_row_select(self, event):
-        """When a row is selected, fill the form with that employee's data."""
         selected = self.tree.selection()
         if not selected:
             return
@@ -110,7 +103,7 @@ class EmployeeApp:
         self.salary_var.set(str(salary))
 
     def on_add(self):
-        """Validate form and add employee; then refresh the table."""
+
         emp_id = self.emp_id_var.get().strip()
         name = self.name_var.get().strip()
         role = self.role_var.get().strip()
@@ -132,7 +125,7 @@ class EmployeeApp:
         self.refresh_employee_table()
 
     def on_remove(self):
-        """Remove the employee whose ID is in the form; then refresh the table."""
+
         emp_id = self.emp_id_var.get().strip()
         if not emp_id:
             messagebox.showwarning(
@@ -143,7 +136,7 @@ class EmployeeApp:
         self.refresh_employee_table()
 
     def on_promote(self):
-        """Update role/salary for the employee whose ID is in the form; then refresh the table."""
+
         emp_id = self.emp_id_var.get().strip()
         if not emp_id:
             messagebox.showwarning(
@@ -165,7 +158,7 @@ class EmployeeApp:
         self.refresh_employee_table()
 
     def refresh_employee_table(self):
-        """Clear the table and reload all employees from the database."""
+
         for row in self.tree.get_children():
             self.tree.delete(row)
         employees = get_all_employees()

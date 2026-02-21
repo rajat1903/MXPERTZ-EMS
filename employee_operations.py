@@ -1,7 +1,4 @@
-"""
-Employee CRUD operations: add, remove, promote, and list employees.
-Uses the database connection from database.py and shows user feedback via messagebox.
-"""
+
 
 from tkinter import messagebox
 from mysql.connector import Error
@@ -30,7 +27,7 @@ def add_employee(emp_id, name, role, salary):
 
 
 def remove_employee(emp_id):
-    """Delete an employee by emp_id."""
+
     conn = get_connection()
     if conn is None:
         return
@@ -50,7 +47,7 @@ def remove_employee(emp_id):
 
 
 def promote_employee(emp_id, new_role=None, new_salary=None):
-    """Update an employee's role and/or salary. At least one of new_role or new_salary must be provided."""
+
     if not new_role and new_salary is None:
         messagebox.showwarning(
             "Input Error", "Please provide a new role and/or a new salary to promote."
@@ -90,7 +87,7 @@ def promote_employee(emp_id, new_role=None, new_salary=None):
 
 
 def get_all_employees():
-    """Return a list of (emp_id, name, role, salary) for all employees. Returns [] on error."""
+
     conn = get_connection()
     if conn is None:
         return []

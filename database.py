@@ -1,8 +1,3 @@
-"""
-Database connection and initialization.
-Handles connecting to MySQL and creating the database/table if they don't exist.
-"""
-
 import mysql.connector
 from mysql.connector import Error
 from tkinter import messagebox
@@ -11,7 +6,6 @@ from config import DB_CONFIG
 
 
 def get_connection():
-    """Create and return a new database connection. Returns None on failure."""
     try:
         conn = mysql.connector.connect(**DB_CONFIG)
         return conn
@@ -21,10 +15,7 @@ def get_connection():
 
 
 def initialize_database():
-    """
-    Ensure the database and employees table exist.
-    Call this once at application startup.
-    """
+    
     try:
         temp_config = DB_CONFIG.copy()
         database_name = temp_config.pop("database")
