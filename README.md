@@ -1,7 +1,5 @@
 # Employee Management System (MXPERTZ-EMS)
 
-Refactored into multiple files for clarity and maintainability.
-
 A simple **database-driven Employee Management System** built with **Python**, **Tkinter** for the GUI, and **MySQL** for persistent storage.
 
 ## Features
@@ -63,5 +61,3 @@ The Tkinter window will open and you can use the buttons to **Add**, **Remove**,
 | **employee_management.py** | Launcher that calls `main()`; use `main.py` directly if you prefer. |
 
 ---
-
-# Employee-Management-System
